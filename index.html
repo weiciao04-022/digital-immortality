@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI技術重現逝者生命｜互動式新聞專題原型</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="noise-overlay"></div>
+
+    <!-- 所有圖片目前為 placeholder，正式上線前需確認授權、來源與引用方式。 -->
+
+    <header id="hero" class="panel full-screen parallax-panel">
+      <!-- HERO IMAGE: replace /assets/images/hero-ai-memory.jpg -->
+      <div class="bg-layer" data-parallax="0.2" style="--bg-image:url('/assets/images/hero-ai-memory.jpg')">
+        <div class="image-fallback">hero-ai-memory.jpg｜黑暗手機聊天室氛圍</div>
+      </div>
+      <div class="overlay"></div>
+      <div class="hero-chat" data-parallax="0.45">
+        <p class="chat-line">「如果媽媽還能再跟我說一次話呢？」</p>
+        <p class="chat-line">「這根本是在消費死人。」</p>
+        <p class="chat-line">「我願意每天跟他聊天。」</p>
+        <p class="chat-line">「死亡本來就該結束嗎？」</p>
+        <p class="chat-line">「如果它真的像他，你還願意放手嗎？」</p>
+      </div>
+      <div class="hero-content">
+        <h1>如果死亡可以被 AI 延後，人類會怎麼選擇？</h1>
+        <p>從台灣、中國、日本到韓國，數位永生正在改變人們面對逝者、記憶與科技的方式。</p>
+        <div id="typed-hero"></div>
+        <button id="startReading" class="btn">開始閱讀</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="context" class="panel">
+        <div class="section-head fade-up"><h2>AI開始替人類留下死亡之後</h2></div>
+        <div class="context-layout">
+          <div class="context-visual fade-up">
+            <!-- IMAGE PLACEHOLDER: replace visuals in these blocks -->
+            <div class="image-placeholder">AI影像重現</div>
+            <div class="image-placeholder">聲音波形</div>
+            <div class="image-placeholder">老照片記憶</div>
+          </div>
+          <div class="context-text fade-up">
+            <p>AI 不再只用來模仿活人的聲音與表情，也開始進入逝者重建。當人離開之後，資料卻可能持續生成「像他」的回應。</p>
+            <p>台灣除夕節目曾以 AI 重現豬哥亮，主持人與影像中的逝者互動；包小柏則以數位人技術延續與女兒的連結。國外影視也已使用 AI 聲音與影像補完已故演員角色。</p>
+            <p>這些案例都把同一個問題推到眼前：數位永生究竟是安慰，還是讓告別變得更困難。</p>
+          </div>
+        </div>
+
+        <div class="case-cards">
+          <article class="case-card fade-up stagger-left" style="--bg-image:url('/assets/images/zgliang-stage.jpg')"><div class="image-fallback">zgliang-stage.jpg</div><h3>豬哥亮：娛樂舞台上的逝者重現</h3><p>AI重建讓逝者再度「站上舞台」，觀眾同時感到驚喜與不安。</p><span>娛樂｜倫理</span></article>
+          <article class="case-card fade-up stagger-right" style="--bg-image:url('/assets/images/family-digital-human.jpg')"><div class="image-fallback">family-digital-human.jpg</div><h3>包小柏：親人思念與數位陪伴</h3><p>數位人被視為情感延續工具，也挑戰了告別是否應有終點。</p><span>親情｜陪伴</span></article>
+          <article class="case-card fade-up stagger-left" style="--bg-image:url('/assets/images/val-kilmer-ai.jpg')"><div class="image-fallback">val-kilmer-ai.jpg</div><h3>Val Kilmer：AI 聲音與影像延續演員生命</h3><p>影視產業以AI補完角色，拓展創作，也引發授權與真實性討論。</p><span>影像｜產業</span></article>
+          <article class="case-card fade-up stagger-right" style="--bg-image:url('/assets/images/wonderland-video-call.jpg')"><div class="image-fallback">wonderland-video-call.jpg</div><h3>韓國《夢境》：虛擬世界中的重逢想像</h3><p>重逢被技術具象化，療癒與逃避之間的界線更模糊。</p><span>影視｜情感科技</span></article>
+        </div>
+      </section>
+
+      <section id="countries" class="panel parallax-panel">
+        <div class="bg-layer" data-parallax="0.15" id="countryBg"><div class="image-fallback">taiwan-comments.jpg</div></div>
+        <div class="overlay"></div>
+        <div class="content-wrap">
+          <h2 class="fade-up">不同國家，如何面對死者</h2>
+          <div class="country-tabs" id="countryTabs"></div>
+          <p id="cultureText" class="culture fade-up"></p>
+          <div id="commentWall" class="comment-wall"></div>
+          <div id="ratioBars" class="ratio-bars"></div>
+        </div>
+      </section>
+
+      <section id="process" class="panel parallax-panel">
+        <div class="bg-layer fixed-desktop" data-parallax="0.08" style="--bg-image:url('/assets/images/tech-process.jpg')"><div class="image-fallback">tech-process.jpg</div></div>
+        <div class="overlay"></div>
+        <div class="content-wrap">
+          <h2 class="fade-up">製作一個數位人，需要什麼？</h2>
+          <div id="flowNodes" class="flow-nodes"></div>
+          <div id="flowDetail" class="flow-detail">點擊節點展開細節。</div>
+        </div>
+      </section>
+
+      <section class="panel" id="tw-challenges">
+        <h2 class="fade-up">台灣發展困境</h2>
+        <div class="challenge-grid">
+          <article class="challenge-card fade-up"><h3>語言困境</h3><p>台語、在地口吻與生活語感仍難完整訓練。語氣不像本人時，真實感會快速下降。</p></article>
+          <article class="challenge-card fade-up"><h3>技術與成本困境</h3><p>即時互動需要高效能硬體、穩定網路與多系統串接，對小型團隊成本偏高。</p></article>
+          <article class="challenge-card fade-up"><h3>市場與倫理困境</h3><p>若只定位「復活逝者」，市場窄且爭議高。未來可能轉向長照、寵物記憶、智慧照護。</p></article>
+        </div>
+      </section>
+
+      <section id="poll" class="panel">
+        <h2 class="fade-up">死後的你，願意被留下嗎？</h2>
+        <p>如果你離世後，你願意讓 AI 生成你的數位人嗎？</p>
+        <div id="pollOptions" class="poll-options"></div>
+        <div id="pollResult" class="poll-result">請先選擇一個選項。</div>
+        <small>目前台灣法律對死後人格、聲音、影像與 AI 生成再現的規範仍不完整。</small>
+      </section>
+
+      <section id="legal" class="panel parallax-panel">
+        <div class="bg-layer" data-parallax="0.1" style="--bg-image:url('/assets/images/legal-ethics.jpg')"><div class="image-fallback">legal-ethics.jpg</div></div>
+        <div class="overlay"></div>
+        <div class="content-wrap">
+          <h2 class="fade-up">法律與倫理：誰能替死者同意？</h2>
+          <div class="legal-grid">
+            <article class="legal-card fade-up"><span class="dot-icon"></span><h3>人格權的限制</h3><p>人格權主要保障活著的人。死亡後，制度難以直接完整處理數位永生。</p></article>
+            <article class="legal-card fade-up"><span class="dot-icon"></span><h3>著作權與肖像素材</h3><p>影像與聲音可能可由著作權規範，但不等於逝者人格被完整保障。</p></article>
+            <article class="legal-card fade-up"><span class="dot-icon"></span><h3>生前同意與使用年限</h3><p>可思考生前授權、死後撤回、家屬管理、使用期限與商業用途限制。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="left-behind" class="panel">
+        <h2 class="fade-up">被留下的，不只是人</h2>
+        <div class="feature-grid">
+          <!-- FEATURE CARD IMAGE: elder-care.jpg -->
+          <article class="feature-card fade-up" style="--bg-image:url('/assets/images/elder-care.jpg')"><div class="image-fallback">elder-care.jpg</div><div><h3>長照陪伴</h3><p>數位人不只重建逝者，也可能陪伴獨居老人，結合健康提醒、情緒偵測與即時通報。</p></div></article>
+          <article class="feature-card fade-up" style="--bg-image:url('/assets/images/pet-memory.jpg')"><div class="image-fallback">pet-memory.jpg</div><div><h3>寵物記憶</h3><p>當毛小孩被視為家人，數位永生也延伸到寵物記憶保存與情感陪伴。</p></div></article>
+          <article class="feature-card fade-up" style="--bg-image:url('/assets/images/ai-actor.jpg')"><div class="image-fallback">ai-actor.jpg</div><div><h3>AI藝人與數位分身</h3><p>透過三維掃描與AI生成降低成本，同時帶來授權與勞動權爭議。</p></div></article>
+          <article class="feature-card fade-up" style="--bg-image:url('/assets/images/family-digital-human.jpg')"><div class="image-fallback">family-digital-human.jpg</div><div><h3>個人記憶資料庫</h3><p>生前主動保存聲音、影像、文字與生活紀錄，成為未來數位人格素材。</p></div></article>
+        </div>
+      </section>
+
+      <section id="ending" class="panel full-screen parallax-panel">
+        <div class="bg-layer" data-parallax="0.12" style="--bg-image:url('/assets/images/ending-chat.jpg')"><div class="image-fallback">ending-chat.jpg</div></div>
+        <div class="overlay ending-overlay"></div>
+        <div class="ending-box">
+          <p class="ai-msg">我在。</p><p class="ai-msg">你最近還好嗎？</p><p class="ai-msg">不要太晚睡。</p><p class="ai-msg">我記得你。</p>
+          <h2 id="finalLine">如果它真的像他，你還願意放手嗎？</h2>
+          <small>AI技術重現逝者生命｜互動式新聞專題原型</small>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
