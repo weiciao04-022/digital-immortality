@@ -10,7 +10,7 @@
   <style>
     :root{--neon:#8de4ff;--soft:#d3f2ff;--glass:rgba(8,20,34,.34)}
     *{box-sizing:border-box} html,body{margin:0;background:#04070d;color:#e9f6ff;font-family:"Noto Sans TC",Inter,sans-serif;overflow-x:hidden}
-    .scene{position:relative;min-height:250vh}
+    .scene{position:relative;min-height:185vh}
     .sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
     .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.08);filter:brightness(.72)}
     .vignette,.scan,.noise{position:absolute;inset:0;pointer-events:none}
@@ -40,6 +40,10 @@
     .country-tabs button.active{background:rgba(130,225,255,.2)}
     .future-grid{position:absolute;inset:16% 8%;display:grid;grid-template-columns:repeat(2,minmax(230px,1fr));gap:1.2rem}
     .future{padding:1rem;border:1px solid rgba(135,220,255,.32);background:rgba(5,16,30,.45);min-height:180px}
+    .parallax-duo{position:absolute;inset:22% 8% 18%;pointer-events:none}
+    .parallax-img{position:absolute;width:min(38vw,560px);border:1px solid rgba(155,232,255,.35);box-shadow:0 16px 60px rgba(0,0,0,.45);filter:saturate(1.05)}
+    .parallax-img.one{left:4%;top:10%}
+    .parallax-img.two{right:2%;top:36%}
     .ending-chat{position:absolute;left:8%;bottom:16%;display:grid;gap:.6rem}
     .ending-chat span{padding:.5rem .8rem;border-radius:10px;background:rgba(13,25,39,.55);border:1px solid rgba(165,230,255,.2);width:fit-content;opacity:0}
     .final{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(1.8rem,4vw,3.4rem);padding:1rem;opacity:0}
@@ -65,7 +69,7 @@
     mk('s6','pic/06taiwan-comments.png',`<div id='comment-wall-canvas'></div><div class='country-tabs'>${['台灣','中國','日本','韓國'].map((c,i)=>`<button data-country='${c}' class='${i===0?'active':''}'>${c}</button>`).join('')}</div>`) +
     mk('s7','pic/05wonderland-video-call.png',`<div class='layer frag' style='left:9%;top:28%'>「如果科技能製造重逢，<br>它也可能延長告別。」</div><div class='layer' style='right:8%;bottom:16%'>Wonderland・白李・虛擬世界・善意的謊言</div>`) +
     mk('s8','pic/11legal-ethics.png',`<div class='issues'><div class='issue'>人格權</div><div class='issue'>著作權</div><div class='issue'>死後授權</div></div><div class='layer frag' style='right:8%;bottom:12%'>「人格權只保障有生命的人。」</div>`) +
-    mk('s9','pic/12elder-care.png',`<div class='future-grid'><div class='future'>長照陪伴</div><div class='future' style='background-image:url(pic/13pet-memory.png);background-size:cover'>PetMemory.ai</div><div class='future' style='background-image:url(pic/14ai-actor.png);background-size:cover'>AI藝人</div><div class='future'>數位分身</div></div>`) +
+    mk('s9','pic/12elder-care.png',`<div class='parallax-duo'><img class='parallax-img one' src='pic/13pet-memory.png' alt='Pet memory'><img class='parallax-img two' src='pic/14ai-actor.png' alt='AI actor'></div><div class='future-grid'><div class='future'>長照陪伴</div><div class='future'>PetMemory.ai</div><div class='future'>AI藝人</div><div class='future'>數位分身</div></div>`) +
     mk('end','pic/15ending-chat.png',`<div class='ending-chat'><span>「我在。」</span><span>「你最近還好嗎？」</span><span>「不要太晚睡。」</span><span>「我記得你。」</span></div><div class='final'>「如果它真的像他，<br>你還願意放手嗎？」</div>`);
 
   const lenis = new Lenis({lerp:.08,smoothWheel:true});
@@ -76,6 +80,8 @@
     gsap.fromTo(bg,{scale:1.15},{scale:1,scrollTrigger:{trigger:scene,start:'top bottom',end:'bottom top',scrub:1.2}});
     gsap.fromTo(scene.querySelectorAll('.layer,.issue,.future,.tag,.comment,.node,.line'),{y:50,opacity:0},{y:0,opacity:1,stagger:.08,scrollTrigger:{trigger:scene,start:'top 70%',end:'top 20%',scrub:1}});
   });
+  gsap.fromTo('#s9 .parallax-img.one',{yPercent:-8,scale:1.06},{yPercent:18,scale:1,scrollTrigger:{trigger:'#s9',start:'top bottom',end:'bottom top',scrub:1.1}});
+  gsap.fromTo('#s9 .parallax-img.two',{yPercent:22,scale:.95},{yPercent:-16,scale:1.05,scrollTrigger:{trigger:'#s9',start:'top bottom',end:'bottom top',scrub:1.1}});
   gsap.to('.final',{opacity:1,duration:1.8,scrollTrigger:{trigger:'#end',start:'70% center',toggleActions:'play none none reverse'}});
   gsap.to('.ending-chat span',{opacity:1,stagger:0.8,duration:1,scrollTrigger:{trigger:'#end',start:'top center'}});
 
